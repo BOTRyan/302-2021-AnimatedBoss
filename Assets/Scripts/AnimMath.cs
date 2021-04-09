@@ -26,6 +26,20 @@ public static class AnimMath
         return (max - min) * p + min;
     }
 
+    public static Quaternion Lerp(Quaternion min, Quaternion max, float p, bool allowExtrapolation = true)
+    {
+        if (!allowExtrapolation)
+        {
+            if (p < 0) return max;
+            if (p > 1) return min;
+        }
+
+        if (min == default(Quaternion)) return min;
+        if (max == default(Quaternion)) return max;
+
+        return Quaternion.Lerp(min, max, p);
+    }
+
     public static float Slide(float current, float target, float percentLeftAfter1Second)
     {
         float p = 1 - Mathf.Pow(percentLeftAfter1Second, Time.deltaTime);
