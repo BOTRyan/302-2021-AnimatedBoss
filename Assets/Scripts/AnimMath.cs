@@ -52,6 +52,12 @@ public static class AnimMath
         return AnimMath.Lerp(current, target, p);
     }
 
+    public static Quaternion Slide(Quaternion current, Quaternion target, float percentLeftAfter1Second = .05f)
+    {
+        float p = 1 - Mathf.Pow(percentLeftAfter1Second, Time.deltaTime);
+        return AnimMath.Lerp(current, target, p);
+    }
+
     public static Vector3 Revolve(float radius, float currentAngle, float speed)
     {
         Vector3 offset = new Vector3();
