@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 0d0a7938d939a2644bf251f8be3199b7, type: 2}
 --- !u!1 &345959010
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +233,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &538785910
 BoxCollider:
@@ -520,26 +520,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 759108303, guid: 92eaea9c960207a47b90bb4b4297c612, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 759108306, guid: 92eaea9c960207a47b90bb4b4297c612, type: 3}
-      propertyPath: m_Data.m_MaintainOffset
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 759108306, guid: 92eaea9c960207a47b90bb4b4297c612, type: 3}
-      propertyPath: m_Data.m_ConstrainedAxes.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 759108306, guid: 92eaea9c960207a47b90bb4b4297c612, type: 3}
-      propertyPath: m_Data.m_ConstrainedAxes.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 759108306, guid: 92eaea9c960207a47b90bb4b4297c612, type: 3}
-      propertyPath: m_Data.m_ConstrainedAxes.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1270293091, guid: 92eaea9c960207a47b90bb4b4297c612, type: 3}
       propertyPath: cam
       value: 
@@ -594,3 +574,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92eaea9c960207a47b90bb4b4297c612, type: 3}
+--- !u!1 &1456266074 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3594984394624181261, guid: 3500c40d4c6aceb44894531eb1750a01, type: 3}
+  m_PrefabInstance: {fileID: 859235962}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &1456266075
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456266074}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 3.25
+  m_Speed: 5
+  m_Acceleration: 300
+  avoidancePriority: 50
+  m_AngularSpeed: 360
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 3
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

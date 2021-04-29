@@ -54,8 +54,8 @@ public class FootAnimator : MonoBehaviour
         }
         // ease position and rotatoin towards their targets:
 
-        transform.position = AnimMath.Slide(transform.position, targetPos, .01f);
-        transform.rotation = AnimMath.Slide(transform.rotation, targetRot, .01f);
+        //transform.position = AnimMath.Slide(transform.position, targetPos, .01f);
+        //transform.rotation = AnimMath.Slide(transform.rotation, targetRot, .01f);
 
     }
 

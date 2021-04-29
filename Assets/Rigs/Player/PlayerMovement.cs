@@ -76,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
                 moveSpeed = 2;
             }
 
+            if (Input.GetKey(KeyCode.R)) health--;
+
             if (Input.GetMouseButton(0))
             {
                 Ray ray = new Ray(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), transform.forward);
