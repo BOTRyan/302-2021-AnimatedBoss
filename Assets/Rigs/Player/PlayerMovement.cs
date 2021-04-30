@@ -27,11 +27,13 @@ public class PlayerMovement : MonoBehaviour
             return pawn.isGrounded || timeLeftGrounded > 0;
         }
     }
+    public bool lockedOn = false;
 
     public float stepSpeed = 5;
     public Vector3 walkScale = Vector3.one;
 
     public bool isSprinting = false;
+    public bool isAttacking = false;
 
     public float v;
     public float h;
@@ -44,8 +46,13 @@ public class PlayerMovement : MonoBehaviour
     public GameObject ragDollPrefab;
     public GameObject ragDollRef;
     private bool dieOnce = true;
-    private int health = 100;
-    private float attackTimer = 0;
+    public int health = 100;
+    private float attackTimer = 2;
+
+    public GameObject fireballPrefab;
+    public Transform castLocation;
+
+    public Transform bossTran;
 
     // Start is called before the first frame update
     void Start()
@@ -76,27 +83,16 @@ public class PlayerMovement : MonoBehaviour
                 moveSpeed = 2;
             }
 
-            if (Input.GetKey(KeyCode.R)) health--;
-
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0) && attackTimer <= 0)
             {
-                Ray ray = new Ray(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), transform.forward);
-                RaycastHit hit;
-
-                if (Physics.Raycast(ray, out hit, 1f))
-                {
-                    if (hit.collider.gameObject.tag == "Enemy" && attackTimer <= 0)
-                    {
-                        print("HIT");
-                        hit.collider.GetComponent<BossMovement>().health -= 10;
-                        attackTimer = 1;
-                    }
-                }
+                isAttacking = true;
+                GameObject Fireball = Instantiate(fireballPrefab, castLocation.position, transform.rotation, null) as GameObject;
+                Rigidbody rb = Fireball.GetComponent<Rigidbody>();
+                rb.velocity = transform.forward * 20;
+                attackTimer = 1;
             }
 
             if (attackTimer > 0) attackTimer -= Time.deltaTime;
-
-            Debug.DrawLine(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), transform.forward);
 
             h = Input.GetAxis("Horizontal");
             v = Input.GetAxis("Vertical");
@@ -137,6 +133,17 @@ public class PlayerMovement : MonoBehaviour
                 {
                     state = States.Idle;
                 }
+            }
+
+            if (Input.GetMouseButton(1))
+            {
+                lockedOn = true;
+                cam.transform.LookAt(bossTran);
+                transform.localRotation = Quaternion.Euler(transform.rotation.x, cam.rotation.eulerAngles.y, transform.rotation.z);
+            }
+            else
+            {
+                lockedOn = false;
             }
 
             if (pawn.isGrounded)

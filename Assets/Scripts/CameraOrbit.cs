@@ -24,7 +24,7 @@ public class CameraOrbit : MonoBehaviour
 
     void Update()
     {
-        PlayerOrbitCamera();
+        if (!moveScript.lockedOn) PlayerOrbitCamera();
         if (moveScript.state != PlayerMovement.States.Dead && moveScript) transform.position = moveScript.transform.position;
         else if (moveScript.state == PlayerMovement.States.Dead && moveScript.ragDollRef) transform.position = moveScript.ragDollRef.transform.position;
     }
